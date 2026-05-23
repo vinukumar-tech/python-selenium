@@ -26,6 +26,17 @@ assert driver.find_element(By.ID,"displayed-text").is_displayed()
 driver.find_element(By.ID,"hide-textbox").click()
 assert not driver.find_element(By.ID,"displayed-text").is_displayed()
 
+#alerts
+name = "vinu"
+driver.find_element(By.ID,"name").send_keys(name)
+driver.find_element(By.ID,"alertbtn").click()
+alert = driver.switch_to.alert
+alerttext = alert.text
+alert.accept()
+#alert.dismiss()
+print(alerttext)
+assert name in alerttext
+
 
 
 
